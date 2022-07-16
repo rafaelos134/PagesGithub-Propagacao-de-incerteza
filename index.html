@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>
+        Calculo de erro experimental
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-title">
+            Calculo erro
+        </h1>
+        <p class="page-subtitle">
+            <b>no lugar de virgula use ponto</b> 
+        </p>
+
+        <div class="form-wrapper">
+            <input type="text" id="funcao" name="funcao" placeholder="função">
+        </div>
+
+        <div class="form-wrapper">
+            <input type="text" id="variaveis" name="variaveis" placeholder="variaveis envolvidas">
+        </div>
+
+        <div class="form-wrapper">
+            <input type="text" id="valor_variaveis" name="valor_variaveis" placeholder="valores das variaveis">
+        </div>
+        
+        <div class="form-wrapper">
+
+            <input type="text" id="erros" name="erros" placeholder="valores dos erros">
+            <button onclick="calcular()"> Click me </button>
+        </div>
+
+        <div id="valorfinal"></div>
+    </div>
+</body>
+
+</html>
