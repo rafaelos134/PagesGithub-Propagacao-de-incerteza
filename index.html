@@ -5,10 +5,13 @@
         Calculo de erro experimental
     </title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img2.gratispng.com/20180524/uu/kisspng-curve-integral-linkedin-besix-user-profile-integral-5b06a4e23b5520.318332331527162082243.jpg">
     <script src="scripts.js"></script>
 </head>
 
 <body>
+    <div class="bg-image"></div>
+    
     <div class="container">
         <h1 class="page-title">
             Calculo erro
@@ -24,7 +27,7 @@
         <div class="form-wrapper">
             <input type="text" id="variaveis" name="variaveis" placeholder="variaveis envolvidas">
         </div>
-
+        
         <div class="form-wrapper">
             <input type="text" id="valor_variaveis" name="valor_variaveis" placeholder="valores das variaveis">
         </div>
@@ -32,9 +35,9 @@
         <div class="form-wrapper">
 
             <input type="text" id="erros" name="erros" placeholder="valores dos erros">
-            <button onclick="calcular()"> Click me </button>
+            <button onclick="calcular()"> Calcular </button>
         </div>
-
+        <div class = c-loader id="load"></div>
         <div id="valorfinal"></div>
     </div>
 </body>
