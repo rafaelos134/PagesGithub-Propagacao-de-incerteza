@@ -1,15 +1,12 @@
 
-
-
-
-
 function fazPost(url, body){
-    console.log("Body=",body)
+    var element = document.getElementById("valorfinal");
+    element.innerHTML = '<li>Carregando...</li>';
     let request = new XMLHttpRequest()
     request.open("POST",url,true)
     request.setRequestHeader("Content-type","application/json")
     request.send(JSON.stringify(body))
-
+     
     request.onload = function(){
         console.log(this.responseText)
         //window.alert("o erro = " + this.responseText)
