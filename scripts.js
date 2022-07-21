@@ -17,13 +17,14 @@ function fazPost(url, body){
 }
 
 function mandavalor(t){
-    let url = "https://polar-headland-20103.herokuapp.com/https://teste-ca.herokuapp.com//calc"
+    let url = "https://polar-headland-20103.herokuapp.com/https://teste-ca.herokuapp.com//calculos"
     fazPost(url,t)   
 }
 
-
+//<link href="https://rafaelos134.github.io/calc-erro/style.css" rel="stylesheet" />
+//<script src="https://rafaelos134.github.io/calc-erro/scripts.js"></script>
 function calcular(){
-    
+    console.log("aq")
     
    let funcao = document.getElementById("funcao").value;
    let variaveis = document.getElementById("variaveis").value;
