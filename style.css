@@ -1,42 +1,49 @@
 body {
   font-family: 'Roboto Mono',monospace;
   text-align:center;
- 
-  background-image: url('https://www.fisica.ufmg.br/memoria/wp-content/uploads/1994/03/DSC_0065-1024x683.jpg');
-  background-color: #000000;
-  background-size: cover;
-  background-position: center top;
+  position:relative;
+  margin:0px;
+
+}
+
+.bg-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.fisica.ufmg.br/memoria/wp-content/uploads/1994/03/DSC_0065-1024x683.jpg');
   background-repeat: no-repeat;
+  background-size: 100%;
+  height: 500px;
+  width: 100%;
+  background-position: center center; 
   
 }
-* {
-  box-sizing: border-box;
+
+.exemplo{
+  background-color: #BF7EA2;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 850;
+  margin-top: -50;
+  vertical-align: middle;
 }
 
-
-
-.container {
-  text-align: center;
-  padding: 20px;
+.page-title{
+  font-size: 30px;
+  color: azure;
+  padding-top: 30px;
 }
 
-.page-title {
-  color: #ffffff;
-  margin: 0 0 5px;
+.page-subtitle{
+  font-size: 20px;
+  color: azure;
+}
+.exemplo{
+  text-align:center;
+  font-size: 30px;
+  color: azure;
+ 
+ 
 }
 
-.page-subtitle {
-  color: #ffffff;
-  margin-top: 5px;
-}
-
-.page-logo {
-  width: 200px;
-}
-
-#listaFilmes img {
-  margin: 10px;
-}
 
 .form-wrapper {
   margin: 0 0 15px;
@@ -45,7 +52,7 @@ body {
 .form-wrapper input {
   display: block;
   margin: 0 auto;
-  padding: 10px 15px;
+  padding: 15px 20px;
 }
 
 .form-wrapper button {
@@ -66,10 +73,11 @@ body {
 }
 
 
-
-
-@keyframes is-rotating {
-  to {
-    transform: rotate(1turn);
-  }
+.exemplo #titulo {
+  color: #000000;
+  padding-top: 30px;
 }
+.equation{
+  color: #000000;
+}
+

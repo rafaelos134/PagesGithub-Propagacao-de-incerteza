@@ -30,7 +30,7 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
     numerosseparados = valoresdasvariaveis.split()
     errosseparados = erro.split()
     
-  
+    
     for x in separados:
         derivadapronta.append(derivada(f,x))
         i+=1
@@ -53,7 +53,7 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
           
     i = 0
     
-    print(subs)
+    print(derivadapronta)
     for x in subs:
         subs[i] = eval(subs[i])
         i+=1
@@ -113,13 +113,13 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
 
 #erro = "(30*10**(-9)) (0.005) (0.002) (0)"
 
-f = "1/(sin(x))"
+f = "(-2*l)/(R * C * log(a))"
 
-a = "x"
+a = "l R C a"
 
-b = "0.80"
+b = "(1.26*10**(-3)) (47) (80*10**(-6)) (0.87)"
 
-erro = "0.02"
+erro = "(0.01*10**(-3)) (5) (1*10**(-6)) (0.01)"
 
 #variaveis q vai derivar
 #print('use o padrão do python \033[31m(** potencia) (*multiplicação) (/divisão)\033[m  \033[1;33m não se esqueça número descimal usa . \033[m' )

@@ -4,43 +4,75 @@
     <title>
         Calculo de erro experimental
     </title>
-    <link href="https://rafaelos134.github.io/calc-erro/style.css" rel="stylesheet" />
-    <script src="https://rafaelos134.github.io/calc-erro/scripts.js"></script>
+    <!-- <link href="https://rafaelos134.github.io/calc-erro/style.css" rel="stylesheet" /> 
+     <script src="https://rafaelos134.github.io/calc-erro/scripts.js"></script>-->
+
+    <link href="style.css" rel="stylesheet" /> 
+    <script src="scripts.js"></script>
     <link rel="icon" type="image/x-icon" href="https://img2.gratispng.com/20180524/uu/kisspng-curve-integral-linkedin-besix-user-profile-integral-5b06a4e23b5520.318332331527162082243.jpg">
-    
+    <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+    </script>
 </head>
 
 <body>
-    <div class="bg-image"></div>
     
-    <div class="container">
+    <section class="bg-image">
+        
+        
         <h1 class="page-title">
-            Calculo da propagação da incerteza
+                Calculo da propagação da incerteza
         </h1>
-        <p class="page-subtitle">
-            <b>no lugar de virgula use ponto</b> 
-        </p>
+            <p class="page-subtitle">
+                <b>no lugar de virgula use ponto</b> 
+            </p>
 
-        <div class="form-wrapper">
-            <input type="text" id="funcao" name="funcao" placeholder="função">
-        </div>
+            <div class="form-wrapper">
+                <input type="text" id="funcao" name="funcao" placeholder="função">
+            </div>
 
-        <div class="form-wrapper">
-            <input type="text" id="variaveis" name="variaveis" placeholder="variaveis envolvidas">
-        </div>
+            <div class="form-wrapper">
+                <input type="text" id="variaveis" name="variaveis" placeholder="variaveis envolvidas">
+            </div>
+            
+            <div class="form-wrapper">
+                <input type="text" id="valor_variaveis" name="valor_variaveis" placeholder="valores das variaveis">
+            </div>
+            
+            <div class="form-wrapper">
+                <input type="text" id="erros" name="erros" placeholder="valores dos erros">
+                <button onclick="calcular()"> Calcular </button>
+            </div>
         
-        <div class="form-wrapper">
-            <input type="text" id="valor_variaveis" name="valor_variaveis" placeholder="valores das variaveis">
-        </div>
-        
-        <div class="form-wrapper">
+            <div class = c-loader id="load"></div>
+            <div id="valorfinal"></div>
+    </section>
 
-            <input type="text" id="erros" name="erros" placeholder="valores dos erros">
-            <button onclick="calcular()"> Calcular </button>
-        </div>
-        <div class = c-loader id="load"></div>
-        <div id="valorfinal"></div>
-    </div>
+
+    <section class="exemplo">
+            <p id = "titulo"> exemplo: fonte RC (seguir sintaxe do python)</p>
+            <p><span class="math display"> função: t/c \[f = \frac{t}{c}\]</span></p>
+            <p> variaveis envolvidas: t c</p>
+            <p>valores das variaveis: t = (65.8740) c = (2.2*10**(-3))</p>
+            <p><span class="math display"> valore dos erros: &delta;(t)=(6*10**(-4)) &delta;(c)=(4*10**(-4)) </span></p>
+            
+            <p>montando a equação ficaria assim:</p>
+            
+           
+            <p><span class="equation">\[\Delta {f} = \sqrt{(\frac{\partial f}{\partial t})^2 (\Delta t)^2 + (\frac{\partial f}{\partial c})^2 (\Delta c)^2} \longrightarrow \Delta {f} =
+                \sqrt{(\frac{1}{c})^2 (\Delta t)^2 + (-\frac{t}{c^2})^2 (\Delta c)^2}\]</span></p>
+
+
+                
+            <p>substituindo tudo fica:</p>
+            <p><span class="equation">\[\Delta {f} = \sqrt{(\frac{1}{2.2*10^{-3}})^2 (6*10^{-4})^2 + 
+                (\frac{65.8740}{(2.2*10^{-3})^2})^2 (4*10^{-4})^2}\]</span></p>   
+                
+            <p>total = 5444.13223823618</p>
+    </section>
+        
+    
+    
 </body>
 
 </html>
