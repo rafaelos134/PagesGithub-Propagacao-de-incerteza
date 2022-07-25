@@ -7,7 +7,7 @@ body {
 }
 
 .bg-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.fisica.ufmg.br/memoria/wp-content/uploads/1994/03/DSC_0065-1024x683.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://rafaelos134.github.io/calc-erro/imagens/DSC_0065-1024x683.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   height: 500px;
@@ -17,11 +17,11 @@ body {
 }
 
 .exemplo{
-  background-color: #BF7EA2;
+  background-color: #D9AC25;
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
-  height: 850;
+  height: 900;
   margin-top: -50;
   vertical-align: middle;
 }
@@ -72,11 +72,16 @@ body {
   opacity:.8;
 }
 
-
 .exemplo #titulo {
   color: #000000;
   padding-top: 30px;
+  font-family: 'OCR A Std', monospace;
 }
+
+.exemplo #resultado {
+  color: #d71c1c;
+}
+
 .equation{
   color: #000000;
 }
