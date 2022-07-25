@@ -10,9 +10,17 @@
     <link href="style.css" rel="stylesheet" /> 
     <script src="scripts.js"></script>
     <link rel="icon" type="image/x-icon" href="https://img2.gratispng.com/20180524/uu/kisspng-curve-integral-linkedin-besix-user-profile-integral-5b06a4e23b5520.318332331527162082243.jpg">
-    <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
     </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 
 <body>
@@ -43,15 +51,13 @@
                 <input type="text" id="erros" name="erros" placeholder="valores dos erros">
                 <button onclick="calcular()"> Calcular </button>
             </div>
-        
-            <div class = c-loader id="load"></div>
-            <div id="valorfinal"></div>
+            <div id="valorfinal"> </div>
     </section>
 
 
     <section class="exemplo">
             <p id = "titulo"> exemplo: fonte RC (seguir sintaxe do python)</p>
-            <p><span class="math display"> função: t/c \[f = \frac{t}{c}\]</span></p>
+            <p><span class="math display">  $f = \frac{t}{c}$</span></p>
             <p> variaveis envolvidas: t c</p>
             <p>valores das variaveis: t = (65.8740) c = (2.2*10**(-3))</p>
             <p><span class="math display"> valore dos erros: &delta;(t)=(6*10**(-4)) &delta;(c)=(4*10**(-4)) </span></p>

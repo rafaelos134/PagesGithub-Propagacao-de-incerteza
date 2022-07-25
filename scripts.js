@@ -11,7 +11,7 @@ function fazPost(url, body){
         console.log(this.responseText)
         //window.alert("o erro = " + this.responseText)
         var element = document.getElementById("valorfinal");
-        element.innerHTML = this.responseText
+        element.innerHTML = "Valor do erro = "+this.responseText
     }   
     return request.responseText
 }
