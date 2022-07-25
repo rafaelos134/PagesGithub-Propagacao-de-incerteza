@@ -28,7 +28,7 @@ body {
 
 .page-title{
   font-size: 30px;
-  color: azure;
+  color: rgb(26, 227, 227);
   padding-top: 30px;
 }
 
@@ -89,5 +89,9 @@ body {
 #valorfinal{
   color: #ffffff;
   font-size: 20px;
+}
+
+.valoresnumericos{
+  color: #d71c1c;
 }
 
