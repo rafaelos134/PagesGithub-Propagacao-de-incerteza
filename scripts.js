@@ -17,7 +17,7 @@ function fazPost(url, body){
 }
 
 function mandavalor(t){
-    let url = "https://polar-headland-20103.herokuapp.com/https://teste-ca.herokuapp.com//calculos"
+    let url = "https://polar-headland-20103.herokuapp.com/https://calculo-erroexerimental.herokuapp.com//calculos"
     fazPost(url,t)   
 }
 
