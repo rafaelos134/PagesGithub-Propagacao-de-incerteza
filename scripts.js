@@ -8,11 +8,45 @@ function fazPost(url, body){
     request.send(JSON.stringify(body))
      
     request.onload = function(){
-        console.log(this.responseText)
-        //window.alert("o erro = " + this.responseText)
-        var element = document.getElementById("valorfinal");
-        element.innerHTML = "Valor do erro = "+this.responseText
-    }   
+   
+        var respostanumero = document.getElementById("valorfinal");
+        var resostaeq = document.getElementById("MyEquation");
+
+        const teste3 = this.responseText
+        const teste = this.responseText.split(" "); //o erro ta nessa divisao, talvez usar outro metodo sem ser string
+        
+        respostanumero.innerHTML = `Valor do erro = ${teste[0]}`
+
+        console.log(teste3)
+        let cont = 0
+        let c = ""
+
+        for (let x of teste){ 
+            
+            if (cont != 0){
+                c += x
+            }  
+            cont+=1
+        }
+        
+        
+        resostaeq.innerHTML  = String.raw`$ \delta (f) = ${c}$`
+
+        
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,'outputDiv']);
+        
+        document.getElementById("lateS").innerHTML  = `LATEX = \\delta (f) = ${c}`
+
+
+        if (teste3 == "coloque as variaveis"){
+            respostanumero.innerHTML = `COLOQUE AS VARAIAVEIS`
+            resostaeq.innerHTML = ''
+            document.getElementById("lateS").innerHTML  = ''
+        }
+        
+        
+    }
+
     return request.responseText
 }
 
@@ -21,8 +55,6 @@ function mandavalor(t){
     fazPost(url,t)   
 }
 
-//<link href="https://rafaelos134.github.io/calc-erro/style.css" rel="stylesheet" />
-//<script src="https://rafaelos134.github.io/calc-erro/scripts.js"></script>
 function calcular(){
     console.log("aq")
     

@@ -24,6 +24,19 @@ def derivada(f2,emrelacao):
 
 def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
 
+    if not listadevariaveis:
+        return("coloque as variaveis")
+
+    if not valoresdasvariaveis:
+        return("coloque as variaveis")
+
+    if not f:
+        return("coloque as variaveis")
+
+    if not erro:
+        return("coloque as variaveis")
+    
+
     derivadapronta = []
     i = 0
     separados = listadevariaveis.split()
@@ -36,44 +49,40 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
         i+=1
     
     p = 0
-    subs = []
+    subst = []
     i = 0 
     cont = 0
-
+    i = 0
+    
+   
+    for x in subst:
+        subst[i] = eval(subst[i])
+        i+=1
+    
+    
 
     for y in derivadapronta:
             for x in separados:
                 if (p <= 0):
-                    subs.append(substitui(str(y),x,numerosseparados[p]))
+                    subst.append(y.subs(x,numerosseparados[p]))
                 else:
-                    subs[i] = substitui(subs[i],x,numerosseparados[p])
+                    subst[i] = subst[i].subs(x,numerosseparados[p])
                 p+=1
             i+=1   
             p=0
-          
-    i = 0
-    
-    print(derivadapronta)
-    for x in subs:
-        subs[i] = eval(subs[i])
-        i+=1
-    
+
     i = 0
     
     for x in errosseparados:
         errosseparados[i] = eval(errosseparados[i])
         i+=1
 
-
-
-
-
     i = 0
     h = []
     
-    for x in subs:
+    for x in subst:
         
-        h.append( (((subs[i]))**2 * (errosseparados[i])**2))
+        h.append( (((subst[i]))**2 * (errosseparados[i])**2))
         
         i+=1
     
@@ -86,21 +95,36 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
     
     totalconta = (total)**(1/2)
 
-    #totalconta 
-
+   
+    #converter python para latex
     
-    
-    return ("{}".format(totalconta))
+    cont = 0
+    c = ''
+    for x in derivadapronta:
+        z = "((({})**2)*(delta_{})**2)".format(x,separados[cont])
+        if cont == 0:
+            c+=z
+        if cont !=0:
+            c += "+" + z 
+        
+        cont+=1
 
+   
+
+    c = "({})**(1/2)".format(c)
+    
+    latex = sy.latex(sy.sympify(c))
+    
+    return ("{} {}".format(totalconta, latex))
 
         
 #funcao
 
 
-#(t)/(c)
-# t c
-#65.8740 0.0022
-#0.0006 0.0004
+f = ""
+a = ''
+b = ""
+erro = ""
 
 
 #f = "b*r*c"
@@ -113,13 +137,13 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
 
 #erro = "(30*10**(-9)) (0.005) (0.002) (0)"
 
-f = "(-2*l)/(R * C * log(a))"
+#f = "(-2*l)/(R * C * log(a))"
 
-a = "l R C a"
+#a = "l R C a"
 
-b = "(1.26*10**(-3)) (47) (80*10**(-6)) (0.87)"
+#b = "(1.26*10**(-3)) (47) (80*10**(-6)) (0.87)"
 
-erro = "(0.01*10**(-3)) (5) (1*10**(-6)) (0.01)"
+#erro = "(0.01*10**(-3)) (5) (1*10**(-6)) (0.01)"
 
 #variaveis q vai derivar
 #print('use o padrão do python \033[31m(** potencia) (*multiplicação) (/divisão)\033[m  \033[1;33m não se esqueça número descimal usa . \033[m' )
