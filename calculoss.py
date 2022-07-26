@@ -109,7 +109,7 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
         
         cont+=1
 
-   
+
 
     c = "({})**(1/2)".format(c)
     
@@ -121,10 +121,16 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
 #funcao
 
 
-f = ""
-a = ''
-b = ""
-erro = ""
+#f = ""
+#a = ''
+#b = ""
+#erro = ""
+
+
+f = "t/c"
+a = 't c'
+b = " 2 3"
+erro = "1 4"
 
 
 #f = "b*r*c"
