@@ -17,17 +17,18 @@
 
 
 
-    
+
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          processEscapes: true
-        }
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
- 
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$']]},
+          "HTML-CSS": { linebreaks: { automatic: true } },
+          CommonHTML: { linebreaks: { automatic: true } },
+          SVG: { linebreaks: { automatic: true } }
+        });
+        </script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+    
 
 </head>
 
@@ -65,8 +66,8 @@
     </section>
 
 
-    <section class="exemplo">
-            <p id = "titulo"> exemplo: fonte RC (seguir sintaxe do python)</p>
+    <section class="exemplo">    
+        <p id = "titulo"> exemplo: fonte RC (seguir sintaxe do python)</p>
             <p><span class="valoresnumericos">  $f = \frac{t}{c}$</span></p>
             <p> variaveis envolvidas: <span class="valoresnumericos">t c</span></p>
             <p>valores das variaveis: <span class = valoresnumericos> t = (65.8740) c = (2.2*10**(-3))</span> </p>
@@ -85,8 +86,9 @@
                 (\frac{65.8740}{(2.2*10^{-3})^2})^2 (4*10^{-4})^2}\]</span></p>   
                 
             <p id = "resultado">total = 5444.13223823618</p>
+            <p id = "resultado"> </p>
 
-            <p id = "lateS"></p>
+  
     </section>
         
     
