@@ -1,6 +1,6 @@
 import sympy as sy
 from math import *
-
+import re
 
 
 
@@ -22,7 +22,7 @@ def derivada(f2,emrelacao):
 
 
 
-def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
+def calculadoraerro(funcao_original,listadevariaveis,valoresdasvariaveis,f, erro):
 
     if not listadevariaveis:
         return("coloque as variaveis")
@@ -42,6 +42,7 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
     separados = listadevariaveis.split()
     numerosseparados = valoresdasvariaveis.split()
     errosseparados = erro.split()
+    
     
     
     for x in separados:
@@ -100,8 +101,10 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
     
     cont = 0
     c = ''
+    ppp = ''
+    
     for x in derivadapronta:
-        z = "((({})**2)*(delta_{})**2)".format(x,separados[cont])
+        z = "((({})**2)*(Delta_{})**2)".format(x,separados[cont])
         if cont == 0:
             c+=z
         if cont !=0:
@@ -113,7 +116,53 @@ def calculadoraerro(listadevariaveis,valoresdasvariaveis,f, erro):
 
     c = "({})**(1/2)".format(c)
     
+    cont=0
+    for x in separados:
+        derivada_antes = "( partial_{} / partial_{})* (Delta_{})**2".format(funcao_original,separados[cont],separados[cont])
+        if cont == 0:
+            ppp +=derivada_antes
+        if cont !=0:
+            ppp += "+" + derivada_antes
+        
+        cont+=1
+
+    
+    ppp = "({})**(1/2)".format(ppp)
+
+    ppp = sy.latex(sy.sympify(ppp))
+    
+    
     latex = sy.latex(sy.sympify(c))
+    
+    palavras_para_remover = [r"\\left",r"\\right",r"\\operatorname"]
+
+
+    #ppp = re.sub(r"{partial",r"{\\partial", ppp)
+    ppp = re.sub(r"partial",r"\\partial", ppp)
+    # encontre = re.findall(r"\\Delta.{8}", ppp)  
+    # encontre =  "|".join(encontre)
+    
+    
+
+    # ppp = re.sub(r"\+", encontre[5], ppp)
+    
+    
+    
+    
+    
+    for x in separados:
+    
+        ppp = re.sub(r"\\Delta_",r"\\Delta ", ppp)  
+        ppp = re.sub(r"partial_",r"partial ", ppp)
+
+
+    
+    for x in range(len(palavras_para_remover)):
+        latex = re.sub(palavras_para_remover[x],"", latex)
+        ppp = re.sub(palavras_para_remover[x],"", ppp)
+        latex = re.sub(r"\\Delta_",r"\\Delta ", latex)
+    
+    print(ppp)
     
     return ("{} {}".format(totalconta, latex))
 
@@ -152,12 +201,22 @@ erro = "1 4"
 #erro = "(0.01*10**(-3)) (5) (1*10**(-6)) (0.01)"
 
 #variaveis q vai derivar
-#print('use o padrão do python \033[31m(** potencia) (*multiplicação) (/divisão)\033[m  \033[1;33m não se esqueça número descimal usa . \033[m' )
-#f = input("digite sua função: ")
-#a = input("fale as variaveis envolvidas: ")
-#b = input("fale os valores das variaveis: ")
-#erro = input("fale os valores dos erros: ")
+print('use o padrão do python \033[31m(** potencia) (*multiplicação) (/divisão)\033[m  \033[1;33m não se esqueça número descimal usa . \033[m' )
+# funcao_original = input("função original: ")
+# f = input("digite sua função: ")
+# a = input("fale as variaveis envolvidas: ")
+# b = input("fale os valores das variaveis: ")
+# erro = input("fale os valores dos erros: ")
 
+funcao_original = "V"
+f = "R*T"
+a = "R T"
+b = "0.22 0.44"
+erro = "0.04 0.04"
 
+#(((B+b)h)/2)/T
+#B b h T
+#0.22 0.44 6.4 1
+#0.04 0.04 0.4 0.04
 
-print (calculadoraerro(a,b,f,erro))
+print (calculadoraerro(funcao_original,a,b,f,erro))
